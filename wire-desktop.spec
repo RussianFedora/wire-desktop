@@ -78,7 +78,7 @@ gtk-update-icon-cache /usr/share/icons/hicolor &>/dev/null || :
 %doc README.md
 %{_bindir}/%{name}
 %dir %{_libdir}/%{name}
-%{_libdir}/%{name}
+%{_libdir}/%{name}/*
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
 
