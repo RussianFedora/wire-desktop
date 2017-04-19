@@ -21,6 +21,10 @@ BuildRequires:	git
 BuildRequires:	hicolor-icon-theme
 BuildRequires:	npm >= 3.10.0
 
+%if 0%{?fedora} >= 25
+BuildRequires:	python2
+%endif
+
 %description
 Wire is an open source, cross-platform, encrypted instant messaging client. It
 uses the Internet to make voice and video calls; send text messages, files,
