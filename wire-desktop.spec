@@ -32,7 +32,7 @@ for registration.
 
 %build
 # Oh, NodeJS
-npm install
+npm install -d
 node_modules/.bin/build --linux tar.xz
 
 %install
