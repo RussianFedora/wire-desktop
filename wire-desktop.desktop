@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Wire
+Comment=Modern communication, full privacy.
+Comment[ru]=Современное общение, полная конфиденциальность
+Exec=wire-desktop
+Terminal=false
+Type=Application
+Categories=Network;InstantMessaging;X-Fedora;
+Icon=wire-desktop
+
