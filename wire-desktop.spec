@@ -38,7 +38,7 @@ node_modules/.bin/build --linux tar.xz
 
 %install
 mkdir -p %{buildroot}%{_libdir}/%{name}
-cp -r wrap/dist/linux-unpacked/* \
+cp -r wrap/dist/linux*unpacked/* \
 	%{buildroot}%{_libdir}/%{name}/
 
 mkdir -p %{buildroot}%{_datadir}/applications
