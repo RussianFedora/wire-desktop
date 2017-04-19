@@ -17,6 +17,7 @@ Source1:	%{name}.desktop
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	gcc-c++
+BuildRequires:	git
 BuildRequires:	hicolor-icon-theme
 BuildRequires:	npm >= 3.10.0
 
