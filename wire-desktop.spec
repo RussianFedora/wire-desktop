@@ -7,7 +7,7 @@
 
 Summary:	Modern communication, full privacy
 Name:		wire-desktop
-Version:	2.13.2739
+Version:	2.13.2740
 Release:	1%{?dist}
 
 License:	GPLv3
@@ -51,9 +51,9 @@ install -m644 %{SOURCE1} %{buildroot}%{_datadir}/applications/%{name}.desktop
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 mkdir -p %{buildroot}%{_bindir}
-for size in 16 24 32 48 64 96 128 256; do
+for size in 32 256; do
     mkdir -p %{buildroot}%{_datadir}/icons/hicolor/${size}x${size}/apps
-    install -m644 node_modules/electron-builder/templates/linux/electron-icons/${size}x${size}.png \
+    install -m644 resources/icons/${size}x${size}.png \
 	%{buildroot}%{_datadir}/icons/hicolor/${size}x${size}/apps/%{name}.png
 done
 
@@ -88,5 +88,9 @@ gtk-update-icon-cache /usr/share/icons/hicolor &>/dev/null || :
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Thu Apr 20 2017 Arkady L. Shane <ashejn@russianfedora.pro> - 2.13.2740-1
+- update to 2.13.2740
+- update icons
+
 * Wed Apr 19 2017 Arkady L. Shane <ashejn@russianfedora.pro> - 2.13.2739-1
 - initial build
