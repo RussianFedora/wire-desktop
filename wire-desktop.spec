@@ -1,5 +1,5 @@
 %global __provides_exclude_from %{_libdir}/%{name}/.*\\.so
-%global privlibs libffmpeg
+%global privlibs libffmpeg|libnode
 %global __requires_exclude ^(%{privlibs})\\.so
 
 # Oh, it fetch some binaries. Fucking nodejs
@@ -8,7 +8,7 @@
 Summary:	Modern communication, full privacy
 Name:		wire-desktop
 Version:	2.13.2740
-Release:	1%{?dist}
+Release:	2%{?dist}
 
 License:	GPLv3
 URL:		https://wire.com
@@ -88,6 +88,9 @@ gtk-update-icon-cache /usr/share/icons/hicolor &>/dev/null || :
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Fri Apr 21 2017 Arkady L. Shane <ashejn@russianfedora.pro> - 2.13.2740-2
+- exclude libnode from depends
+
 * Thu Apr 20 2017 Arkady L. Shane <ashejn@russianfedora.pro> - 2.13.2740-1
 - update to 2.13.2740
 - update icons
