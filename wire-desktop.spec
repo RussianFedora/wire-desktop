@@ -1,14 +1,14 @@
 %global __provides_exclude_from %{_libdir}/%{name}/.*\\.so
 %global privlibs libffmpeg|libnode
-%global __requires_exclude ^(%{privlibs})\\.so
+%global __requires_exclude ^(%{privlibs})\\.so|lodash.some|commander|glob|uglify-js
 
 # Oh, it fetch some binaries. Fucking nodejs
 %global debug_package %{nil}
 
 Summary:	Modern communication, full privacy
 Name:		wire-desktop
-Version:	2.13.2740
-Release:	2%{?dist}
+Version:	3.0.2816
+Release:	1%{?dist}
 
 License:	GPLv3
 URL:		https://wire.com
@@ -38,7 +38,11 @@ for registration.
 %build
 # Oh, NodeJS
 npm install
-node_modules/.bin/build --linux tar.xz
+%ifarch x86_64
+./node_modules/grunt/bin/grunt --arch=x64 --target=tar.xz linux-other
+%else
+./node_modules/grunt/bin/grunt --arch=ia32 --target=tar.xz linux-other
+%endif
 
 %install
 mkdir -p %{buildroot}%{_libdir}/%{name}
@@ -88,6 +92,9 @@ gtk-update-icon-cache /usr/share/icons/hicolor &>/dev/null || :
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Mon Feb  5 2018 Arkady L. Shane <ashejn@russianfedora.pro> - 3.0.2816-1
+- update to 3.0.2816
+
 * Fri Apr 21 2017 Arkady L. Shane <ashejn@russianfedora.pro> - 2.13.2740-2
 - exclude libnode from depends
 
